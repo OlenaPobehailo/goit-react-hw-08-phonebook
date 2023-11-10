@@ -1,18 +1,21 @@
-import ContactForm from './ContactForm';
-import Filter from './Filter';
-import ContactList from './ContactList';
+import { Route, Routes } from 'react-router-dom';
+
+import { ContactsPage, Login, Register, NotFound } from 'pages';
+import Layout from 'components/Layout';
 
 import { AppContainer } from './App.styled';
 
 export const App = () => {
-  
   return (
     <AppContainer>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<ContactsPage />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </AppContainer>
   );
 };
