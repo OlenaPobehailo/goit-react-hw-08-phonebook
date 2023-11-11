@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { ContactsPage, Login, Register, NotFound } from 'pages';
+import { ContactsPage, Login, RegisterPage, NotFound } from 'pages';
 import Layout from 'components/Layout';
 
 import { AppContainer } from './App.styled';
@@ -15,7 +15,7 @@ export const App = () => {
           <Route path="/contacts" element={<ContactsPage />} />
         </Route>
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AppContainer>
