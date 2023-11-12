@@ -3,12 +3,12 @@ import Navbar from 'components/Navigation';
 
 const Layout = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <div>
         <Outlet />
       </div>
-    </div>
+    </>
   );
 };
 

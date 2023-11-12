@@ -1,17 +1,24 @@
 import React from 'react';
 import { StyledForm } from './RegisterForm.styled';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerThunk } from 'redux/auth/authOperations';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
+import { Navigate } from 'react-router-dom';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
   const { register, reset, handleSubmit } = useForm();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const submit = data => {
     console.log(data);
     dispatch(registerThunk(data));
   };
+
+  if (isLoggedIn) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <StyledForm onSubmit={handleSubmit(submit)}>
