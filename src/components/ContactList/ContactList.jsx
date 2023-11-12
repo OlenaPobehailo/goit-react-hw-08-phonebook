@@ -1,13 +1,21 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectContacts, selectFilteredContacts } from 'redux/contacts/contactsSelectors';
-import { deleteContact, fetchContacts } from 'redux/contacts/contactsOperations';
+import {
+  selectContacts,
+  selectFilteredContacts,
+} from 'redux/contacts/contactsSelectors';
+import {
+  deleteContact,
+  fetchContacts,
+} from 'redux/contacts/contactsOperations';
 import { DeleteButton, ListItem } from './ContactList.styled';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     dispatch(fetchContacts());

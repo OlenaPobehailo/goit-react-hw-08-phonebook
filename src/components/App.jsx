@@ -7,6 +7,7 @@ import Layout from 'components/Layout';
 import { refreshThunk } from 'redux/auth/authOperations';
 
 import { AppContainer } from './App.styled';
+import PrivateRoute from 'routes/PrivateRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,14 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<h1>Hello!</h1>} />
 
-          <Route path="/contacts" element={<ContactsPage />} />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegisterPage />} />

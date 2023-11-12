@@ -17,9 +17,7 @@ const Navigation = () => {
         <li>
           <NavLink to="/">Home</NavLink>
         </li>
-        <li>
-          <NavLink to="/contacts">Contacts</NavLink>
-        </li>
+        <li>{isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}</li>
       </ul>
 
       {isLoggedIn ? (
