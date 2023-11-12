@@ -2,14 +2,14 @@ import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+import PrivateRoute from 'routes/PrivateRoute';
 import { ContactsPage, Login, RegisterPage, NotFound } from 'pages';
+import HomePage from 'pages/HomePage';
 import Layout from 'components/Layout';
 import { refreshThunk } from 'redux/auth/authOperations';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 import { AppContainer } from './App.styled';
-import PrivateRoute from 'routes/PrivateRoute';
-import { selectIsLoggedIn } from 'redux/auth/authSelectors';
-import HomePage from 'pages/HomePage';
 
 export const App = () => {
   const dispatch = useDispatch();

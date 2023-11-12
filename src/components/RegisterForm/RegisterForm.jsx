@@ -1,10 +1,9 @@
-import React from 'react';
-import { StyledForm } from './RegisterForm.styled';
+import { Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerThunk } from 'redux/auth/authOperations';
 import { selectIsLoggedIn } from 'redux/auth/authSelectors';
-import { Navigate } from 'react-router-dom';
+import { StyledForm } from './RegisterForm.styled';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
