@@ -5,8 +5,7 @@ import React from 'react';
 
 const ContactsPage = () => {
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <div className='container'>
       <ContactForm />
       <h2>Contacts</h2>
       <Filter />

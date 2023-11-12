@@ -1,15 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { logoutThunk } from 'redux/auth/authOperations';
-import { selectIsLoggedIn, selectUser } from 'redux/auth/authSelectors';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 import { StyledNav } from './Navigation.styled';
+import UserMenu from 'components/UserMenu';
+import AuthMenu from 'components/AuthMenu';
 
 const Navigation = () => {
-  const { name } = useSelector(selectUser);
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const dispatch = useDispatch();
-  console.log('name', name);
-  console.log('isLoggedIn', isLoggedIn);
 
   return (
     <StyledNav>
@@ -18,21 +15,7 @@ const Navigation = () => {
         <li>{isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}</li>
       </ul>
 
-      {isLoggedIn ? (
-        <div>
-          <span>{name}</span> |{' '}
-          <button onClick={() => dispatch(logoutThunk())}>Exit</button>
-        </div>
-      ) : (
-        <ul>
-          <li>
-            <NavLink to="/login">Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="/register">Register</NavLink>
-          </li>
-        </ul>
-      )}
+      {isLoggedIn ? <UserMenu /> : <AuthMenu />}
     </StyledNav>
   );
 };

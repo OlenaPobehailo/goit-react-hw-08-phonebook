@@ -3,7 +3,7 @@ import RegisterForm from 'components/RegisterForm';
 
 const RegisterPage = () => {
   return (
-    <div>
+    <div className="center">
       <RegisterForm />
       <p>Register</p>
       <p>

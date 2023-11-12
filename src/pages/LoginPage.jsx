@@ -3,13 +3,14 @@ import LoginForm from 'components/LoginForm';
 
 const Login = () => {
   return (
-    <div>
+    <div className="center">
       <LoginForm />
-      <p>Please, log in</p>
-      <p>
-        If you do not have an account please
-        <Link to="/register"> register!</Link>
-      </p>
+      <div >
+        <p>Please, log in</p>
+        <p>If you do not have an account please
+          <Link to="/register"> register!</Link>
+        </p>
+      </div>
     </div>
   );
 };

@@ -6,17 +6,17 @@ const HomePage = () => {
   const { name } = useSelector(selectUser);
 
   return (
-    <div>
+    <div className="container">
       {isLoggedIn ? (
-        <>
-          <p>Welcome to the HomePage, {name}!</p>
-          <p>Now you can use your phone book</p>
-        </>
+        <div className="center">
+          <p>Welcome to the PhoneBook, {name}!</p>
+          <p>Now you can see your contacts.</p>
+        </div>
       ) : (
-        <>
+        <div className="center">
           <p>Welcome to the phone book, guest!</p>
           <p>Please sign up or sign in!</p>
-        </>
+        </div>
       )}
     </div>
   );

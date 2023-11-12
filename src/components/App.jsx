@@ -9,8 +9,6 @@ import Layout from 'components/Layout';
 import { refreshThunk } from 'redux/auth/authOperations';
 import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 
-import { AppContainer } from './App.styled';
-
 export const App = () => {
   const dispatch = useDispatch();
 
@@ -19,7 +17,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <AppContainer>
+    <div>
       <Routes>
         <Route path="/" element={<Layout />}>
           {selectIsLoggedIn ? <Route index element={<HomePage />} /> : null}
@@ -32,11 +30,11 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<RegisterPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </AppContainer>
+    </div>
   );
 };

@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-
-
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -23,6 +21,8 @@ export const StyledForm = styled.form`
   button {
     padding: 0.75rem 0.5rem;
     border-radius: 0.375rem;
+    border-color: #008080;
+    font-size: 1.25rem;
     cursor: pointer;
     transition-property: all;
     transition-duration: 0.5s;

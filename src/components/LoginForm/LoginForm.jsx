@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { loginThunk } from 'redux/auth/authOperations';
 import { selectIsLoggedIn } from 'redux/auth/authSelectors';
-import { StyledForm } from './LoginForm.styled';
+import { StyledForm, Wrapper } from './LoginForm.styled';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,6 @@ const LoginForm = () => {
   const { register, handleSubmit } = useForm();
 
   const submit = data => {
-    console.log(data);
     dispatch(loginThunk(data));
   };
 
@@ -20,20 +19,20 @@ const LoginForm = () => {
   }
 
   return (
-    <StyledForm onSubmit={handleSubmit(submit)}>
-      <input
-        placeholder="Enter your email"
-        {...register('email', { required: true, minLength: 6 })}
-        autoComplete="username"
-      />
-      <input
-        type="password"
-        placeholder="Enter your password"
-        {...register('password', { required: true, minLength: 6 })}
-        autoComplete="current-password"
-      />
-      <button type="submit">Login</button>
-    </StyledForm>
+      <StyledForm onSubmit={handleSubmit(submit)}>
+        <input
+          placeholder="Enter your email"
+          {...register('email', { required: true, minLength: 6 })}
+          autoComplete="username"
+        />
+        <input
+          type="password"
+          placeholder="Enter your password"
+          {...register('password', { required: true, minLength: 6 })}
+          autoComplete="current-password"
+        />
+        <button type="submit">Login</button>
+      </StyledForm>
   );
 };
 
