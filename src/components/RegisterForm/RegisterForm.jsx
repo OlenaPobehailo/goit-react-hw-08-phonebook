@@ -11,7 +11,6 @@ const RegisterForm = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const submit = data => {
-    console.log(data);
     dispatch(registerThunk(data));
   };
 

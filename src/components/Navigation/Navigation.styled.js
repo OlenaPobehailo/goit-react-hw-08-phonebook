@@ -26,7 +26,6 @@ export const StyledNav = styled.nav`
   }
 
   & a:hover {
-    /* color: #008080; */
     text-decoration: underline;
   }
 `;

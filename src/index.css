@@ -57,7 +57,6 @@ img {
   margin: 0 auto;
   border: 1px solid lightblue;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  /* overflow: auto; */
 }
 
 @media screen and (min-width: 480px) {
