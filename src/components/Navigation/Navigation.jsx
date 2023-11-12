@@ -14,9 +14,7 @@ const Navigation = () => {
   return (
     <StyledNav>
       <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
+        <li>{!isLoggedIn && <NavLink to="/">Home</NavLink>}</li>
         <li>{isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}</li>
       </ul>
 

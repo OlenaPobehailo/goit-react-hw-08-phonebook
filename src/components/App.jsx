@@ -8,6 +8,8 @@ import { refreshThunk } from 'redux/auth/authOperations';
 
 import { AppContainer } from './App.styled';
 import PrivateRoute from 'routes/PrivateRoute';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
+import HomePage from 'pages/HomePage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -20,8 +22,7 @@ export const App = () => {
     <AppContainer>
       <Routes>
         <Route path="/" element={<Layout />}>
-          
-          <Route index element={<h1>Hello!</h1>} />
+          {selectIsLoggedIn ? <Route index element={<HomePage />} /> : null}
 
           <Route
             path="/contacts"
