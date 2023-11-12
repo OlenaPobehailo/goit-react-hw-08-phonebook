@@ -8,7 +8,7 @@ import { Navigate } from 'react-router-dom';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
-  const { register, reset, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const submit = data => {

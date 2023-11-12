@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  selectContacts,
   selectFilteredContacts,
 } from 'redux/contacts/contactsSelectors';
 import {
@@ -9,14 +8,11 @@ import {
   fetchContacts,
 } from 'redux/contacts/contactsOperations';
 import { DeleteButton, ListItem } from './ContactList.styled';
-import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
+  
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -25,15 +21,11 @@ const ContactList = () => {
     dispatch(deleteContact(id));
   };
 
-  if (contacts.length === 0) {
-    return <p>Loading...</p>;
-  }
-
   return (
     <ul>
       {filteredContacts.map(contact => (
         <ListItem key={contact.id}>
-          {contact.name + ': ' + contact.phone}
+          {contact.name + ': ' + contact.number}
           <DeleteButton
             type="button"
             name="delete"

@@ -7,7 +7,7 @@ import { Input, Button } from './ContactForm.styled';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const contacts = useSelector(selectContacts);
 
@@ -20,8 +20,8 @@ const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
       default:
         return;
@@ -38,14 +38,14 @@ const ContactForm = () => {
       reset();
       return;
     } else {
-      dispatch(addContact({ name, phone }));
+      dispatch(addContact({ name, number }));
       reset();
     }
   };
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -65,8 +65,8 @@ const ContactForm = () => {
         Number
         <Input
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           onChange={handleInputChange}
           required
         />

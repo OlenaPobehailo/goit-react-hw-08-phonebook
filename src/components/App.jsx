@@ -20,6 +20,7 @@ export const App = () => {
     <AppContainer>
       <Routes>
         <Route path="/" element={<Layout />}>
+          
           <Route index element={<h1>Hello!</h1>} />
 
           <Route
