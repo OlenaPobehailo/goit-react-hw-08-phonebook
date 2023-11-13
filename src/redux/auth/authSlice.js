@@ -24,14 +24,24 @@ const authSlice = createSlice({
 
   extraReducers: builder => {
     builder
+
       .addCase(logoutThunk.fulfilled, (state, { payload }) => {
         return (state = initialState);
+      })
+
+      .addCase(refreshThunk.pending, state => {
+        state.isRefreshing = true;
       })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
         state.user.name = payload.name;
         state.user.email = payload.email;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
+      .addCase(refreshThunk.rejected, state => {
+        state.isRefreshing = false;
+      })
+
       .addMatcher(
         isAnyOf(registerThunk.fulfilled, loginThunk.fulfilled),
         (state, { payload }) => {
