@@ -4,6 +4,7 @@ export const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 48px;
   padding: 10px;
   background-color: gray;
   color: white;

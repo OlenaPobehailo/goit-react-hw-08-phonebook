@@ -8,6 +8,7 @@ import Layout from 'components/Layout';
 import { refreshThunk } from 'redux/auth/authOperations';
 import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 import { useAuth } from 'hooks/useAuth';
+import Loader from './Loader';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
@@ -25,7 +26,9 @@ export const App = () => {
 
   return (
     <div>
-      {!isRefreshing && (
+      {isRefreshing ? (
+        <Loader />
+      ) : (
         <Routes>
           <Route path="/" element={<Layout />}>
             {!isLoggedIn ? <Route index element={<HomePage />} /> : null}

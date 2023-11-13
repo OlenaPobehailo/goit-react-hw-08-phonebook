@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const goitApi = axios.create({
   baseURL: 'https://connections-api.herokuapp.com/',
@@ -21,6 +22,7 @@ export const registerThunk = createAsyncThunk(
       setToken(data.token);
       return data;
     } catch (error) {
+      toast('Registration failed. Please try again!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -35,6 +37,7 @@ export const loginThunk = createAsyncThunk(
 
       return data;
     } catch (error) {
+      toast('No such user. Please try again!');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

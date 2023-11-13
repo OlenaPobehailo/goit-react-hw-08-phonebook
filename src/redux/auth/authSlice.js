@@ -50,6 +50,17 @@ const authSlice = createSlice({
           state.token = payload.token;
           state.isLoggedIn = true;
         }
+      )
+      .addMatcher(
+        isAnyOf(
+          registerThunk.pending,
+          loginThunk.pending,
+          registerThunk.rejected,
+          loginThunk.rejected
+        ),
+        (state) => {
+          return state;
+        }
       );
   },
 });

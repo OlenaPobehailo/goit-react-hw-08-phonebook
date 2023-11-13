@@ -8,10 +8,11 @@ import { StyledForm } from './LoginForm.styled';
 const LoginForm = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const submit = data => {
     dispatch(loginThunk(data));
+    reset();
   };
 
   if (isLoggedIn) {
