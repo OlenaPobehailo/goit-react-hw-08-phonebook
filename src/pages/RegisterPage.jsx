@@ -5,7 +5,7 @@ const RegisterPage = () => {
   return (
     <div className="center">
       <RegisterForm />
-      <p>Register</p>
+      <p>Please register.</p>
       <p>
         If you already have an account you can
         <Link to="/login"> login!</Link>

@@ -6,7 +6,7 @@ const Login = () => {
     <div className="center">
       <LoginForm />
       <div >
-        <p>Please, log in</p>
+        <p>Please, log in.</p>
         <p>If you do not have an account please
           <Link to="/register"> register!</Link>
         </p>
