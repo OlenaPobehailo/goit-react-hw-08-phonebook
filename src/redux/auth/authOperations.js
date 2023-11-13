@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 export const goitApi = axios.create({
   baseURL: 'https://connections-api.herokuapp.com/',

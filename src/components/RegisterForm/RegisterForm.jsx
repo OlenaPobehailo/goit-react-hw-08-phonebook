@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
 import { registerThunk } from 'redux/auth/authOperations';
 import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 import { StyledForm } from './RegisterForm.styled';

@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PrivateRoute, RestrictedRoute } from 'routes';
 import { NotFound } from 'pages';
 import Layout from 'components/Layout';
+import Loader from 'components/Loader';
 import { refreshThunk } from 'redux/auth/authOperations';
 import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 import { useAuth } from 'hooks/useAuth';
-import Loader from './Loader';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
